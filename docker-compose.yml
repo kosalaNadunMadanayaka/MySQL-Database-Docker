@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0.24
+    env_file:
+      - ./env/mysql.env
+    ports:
+      - 3310:3306
+    volumes:
+      - ./volumes/mysql/:/var/lib/mysql/
+
+  adminer:
+    image: adminer:4.7.6-standalone
+    env_file:
+      - ./env/adminer.env
+    ports:
+      - 8001:8080
